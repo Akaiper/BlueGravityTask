@@ -39,7 +39,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: WalkingFoward
+    m_ConditionEvent: WalkingForward
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -110663676851178925}
@@ -150,7 +150,7 @@ AnimatorController:
   m_Name: BlueBody Atualizado_22
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: WalkingFoward
+  - m_Name: WalkingForward
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -250,7 +250,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: WalkingFoward
+    m_ConditionEvent: WalkingForward
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8658436144262054890}
