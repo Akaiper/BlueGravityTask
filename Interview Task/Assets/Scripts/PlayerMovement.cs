@@ -89,11 +89,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!PressedKey(_downKeys))
 		{
-            _playerAnimator.SetBool("WalkingForward", false);
+            _playerAnimator.SetBool("WalkingDown", false);
         }
         if (!PressedKey(_upKeys))
 		{
-            _playerAnimator.SetBool("WalkingBack", false);
+            _playerAnimator.SetBool("WalkingUp", false);
         }
     }
 

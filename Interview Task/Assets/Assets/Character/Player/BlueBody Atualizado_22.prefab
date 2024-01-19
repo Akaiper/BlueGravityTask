@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 8077626807034196021}
   - component: {fileID: 1200667743356215987}
   - component: {fileID: 5814730255634361394}
+  - component: {fileID: 168285323938038076}
   m_Layer: 0
   m_Name: BlueBody Atualizado_22
   m_TagString: Untagged
@@ -284,3 +285,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _playerAnimator: {fileID: 0}
+--- !u!114 &168285323938038076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265884087716108232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b830b9d4646212e448695e4f7f4c39ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mannequin: {fileID: 0}
+  thisSpriteLibraryAsset: {fileID: 7108339969198208228, guid: 9ac4eb0f236cf1e45ab322565e311598, type: 3}
+  thisOutfitSprite: {fileID: -1310510944, guid: 8f6cdfce0cc5d2f4cae7456020f1ff31, type: 3}
+  Price: 0
+  isInitialOutfit: 1
+  playerOwnsIt: 0
