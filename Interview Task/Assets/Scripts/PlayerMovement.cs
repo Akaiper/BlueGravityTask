@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _speed;
 
+    private int _pauseMovement = 1;
+
     [SerializeField]
     private Animator _playerAnimator;
 
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
                 _playerAnimator.SetBool("WalkingLeft", true);
 
                 _direction = new Vector3(-1, 0, 0);
-                transform.position += _speed * Time.deltaTime * _direction;
+                transform.position += _speed * Time.deltaTime * _direction * _pauseMovement;
             }
         }
         if (PressedKey(_rightKeys))
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 _playerAnimator.SetBool("WalkingRight", true);
 
                 _direction = new Vector3(1, 0, 0);
-                transform.position += _speed * Time.deltaTime * _direction;
+                transform.position += _speed * Time.deltaTime * _direction * _pauseMovement;
             }
         }
         if (PressedKey(_downKeys))
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 _playerAnimator.SetBool("WalkingDown", true);
 
                 _direction = new Vector3(0, -1, 0);
-                transform.position += _speed * Time.deltaTime * _direction;
+                transform.position += _speed * Time.deltaTime * _direction * _pauseMovement;
             }
         }
         if (PressedKey(_upKeys))
@@ -72,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
                 _playerAnimator.SetBool("WalkingUp", true);
 
                 _direction = new Vector3(0, 1, 0);
-                transform.position += _speed * Time.deltaTime * _direction;
+                transform.position += _speed * Time.deltaTime * _direction * _pauseMovement;
             }
         }
     }
@@ -109,4 +111,13 @@ public class PlayerMovement : MonoBehaviour
 
         return false;
     }
+
+    public void BlockMovement()
+	{
+        _pauseMovement = 0;
+	}
+    public void UnblockMovement()
+	{
+        _pauseMovement = 1;
+	}
 }
