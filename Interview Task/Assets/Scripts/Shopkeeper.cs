@@ -31,13 +31,7 @@ public class Shopkeeper : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		CheckOutCart();
 		StartDialogue();
-	}
-
-	private void CheckOutCart()
-	{
-
 	}
 
 	private void StartDialogue()
@@ -58,7 +52,7 @@ public class Shopkeeper : MonoBehaviour
 		if(player.GetPlayerMoney() >= _cartCost)
 		{
 			_shopkeeperText.text = "Your total is $" + _cartCost + " \n Want to buy your cart?";
-			_2ndRedButton.text = "OK";
+			_2ndRedButton.text = "No";
 		}
 		else
 		{
@@ -75,6 +69,8 @@ public class Shopkeeper : MonoBehaviour
 		{
 			item.GetComponent<Mannequin>().IsNotInCart();
 		}
+
+		player.SetMoney(player.GetPlayerMoney() - _cartCost);
 	}
 
 	public void DidntBuyCart()
@@ -84,12 +80,24 @@ public class Shopkeeper : MonoBehaviour
 		{
 			foreach (GameObject mannequin in _mannequins)
 			{
-				if (item.gameObject.name == mannequin.gameObject.name)//não ta funcionando
+				if (item.gameObject.name == mannequin.gameObject.name)
 				{
 					mannequin.GetComponent<Mannequin>().PlayerSoldIt();
 					mannequin.GetComponent<Mannequin>().IsNotInCart();
-
-					Debug.Log(mannequin.gameObject);
+				}
+			}
+		}
+	}
+	public void ReturnItems(List<Outfit> Returns)
+	{
+		foreach (Outfit item in Returns)
+		{
+			foreach (GameObject mannequin in _mannequins)
+			{
+				if (item.gameObject.name == mannequin.gameObject.name)
+				{
+					mannequin.GetComponent<Mannequin>().PlayerSoldIt();
+					mannequin.GetComponent<Mannequin>().IsNotInCart();
 				}
 			}
 		}

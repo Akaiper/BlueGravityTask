@@ -29,6 +29,8 @@ public class DressingRoom : MonoBehaviour
 
 	private Vector3 _playerOriginalPosition;
 
+	private List<GameObject> _contentButtons = new List<GameObject>();
+
 	private void Start()
 	{
 		_dressingRoomPosition = new Vector3(-7.69999981f, 2.67000008f, -0.0500000007f);
@@ -49,10 +51,18 @@ public class DressingRoom : MonoBehaviour
 
 	private void ListInventory()
 	{
+		foreach (GameObject item in _contentButtons)
+		{
+			
+			Destroy(item);
+		}
+		_contentButtons.Clear();
 		foreach  (Outfit item in _playerInventory)
 		{
 
 			_newButton = GameObject.Instantiate(_buttonScrollView, _content.transform);
+
+			_contentButtons.Add(_newButton);
 
 			_newButton.GetComponent<OutfitButton>().SetOutfit(item);
 			_newButton.GetComponent<OutfitButton>().SetDressingRoomReference(this.gameObject.GetComponent<DressingRoom>());
@@ -62,9 +72,10 @@ public class DressingRoom : MonoBehaviour
 		}
 	}
 
-	public void ChosenOutfit(SpriteLibraryAsset outfit)
+	public void ChosenOutfit(SpriteLibraryAsset outfit, Outfit newOutfit)
 	{
 		_player.SetLibraryAsset(outfit);
+		_player.PlayerIsWearingOutfit(newOutfit);
 	}
 
 	public void ExitDressingRoom()

@@ -17,6 +17,8 @@ public class Outfit : MonoBehaviour
     protected bool isInitialOutfit;
     [SerializeField]
     private bool playerOwnsIt;
+    [SerializeField]
+    private bool playerIsWearing;
 
     public GameObject GetMannequin()
 	{
@@ -52,5 +54,14 @@ public class Outfit : MonoBehaviour
 	{
         playerOwnsIt = PlayerIsTheOwner;
 	}
+    
+    public void SetPlayerIsWearing(bool PlayerChoseIt)
+	{
+        playerIsWearing = PlayerChoseIt;
+	}
 
+    public bool GetPlayerIsWearing()
+	{
+        return playerIsWearing;
+	}
 }
