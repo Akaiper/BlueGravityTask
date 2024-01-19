@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shopkeeperText: {fileID: 1785172814924106151}
+  _2ndRedButton: {fileID: 0}
+  _2ndGreenButton: {fileID: 0}
   _startDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -103,8 +105,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _notEnoughMoney:
+    m_PersistentCalls:
+      m_Calls: []
   _manager: {fileID: 0}
   player: {fileID: 0}
+  _mannequins:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1777935770245253142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,10 +1143,10 @@ RectTransform:
   m_Father: {fileID: 5839676405811772810}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.019604297, y: 0.062469453}
+  m_AnchorMin: {x: 0.017501593, y: 0.36800003}
   m_AnchorMax: {x: 0.9816643, y: 0.9394139}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.00000016996637, y: 0.000000029802322}
+  m_SizeDelta: {x: -0.000000052154064, y: 0.00000011920929}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5696480606430344118
 CanvasRenderer:
@@ -1216,7 +1239,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.08345604, y: 0, z: 0, w: 0.008431315}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

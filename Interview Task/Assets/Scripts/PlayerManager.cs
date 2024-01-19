@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,7 +11,14 @@ public class PlayerManager : MonoBehaviour
     private List<Outfit> _playerInventory = new List<Outfit>();
     private int _playerMoney = 100;
 
-    public int GetPlayerMoney()
+
+
+	private void Start()
+	{
+		_playerInventory.Add(gameObject.GetComponent<Outfit>());
+	}
+
+	public int GetPlayerMoney()
 	{
         return _playerMoney;
 	}
@@ -22,4 +30,14 @@ public class PlayerManager : MonoBehaviour
             _playerInventory.Add(item);
         }
     }
+
+    public List<Outfit> GetPlayerInventory()
+	{
+        return _playerInventory;
+	}
+
+	public void SetLibraryAsset(SpriteLibraryAsset newOutfit)
+	{
+		gameObject.GetComponentInChildren<SpriteLibrary>().spriteLibraryAsset = newOutfit;
+	}
 }

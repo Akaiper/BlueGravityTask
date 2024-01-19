@@ -8,20 +8,26 @@ public class Shopkeeper : MonoBehaviour
 {
 	[SerializeField]
 	private TextMeshProUGUI _shopkeeperText;
+	[SerializeField]
+	private TextMeshProUGUI _2ndRedButton;
+	[SerializeField]
+	private GameObject _2ndGreenButton;
 
 	[SerializeField]
 	private UnityEvent _startDialogue;
 
 	[SerializeField]
 	private ShoppingCart _manager;
+
 	[SerializeField]
 	private PlayerManager player;
+	
+	[SerializeField]
+	private GameObject[] _mannequins = new GameObject[17];
 
 	private List<Outfit> _playerCart = new List<Outfit>();
 
 	private int _cartCost = 0;
-
-	private GameObject _mannequin;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -42,6 +48,8 @@ public class Shopkeeper : MonoBehaviour
 
 	public void BuyDialogue()
 	{
+		_cartCost = 0;
+
 		foreach (Outfit item in _playerCart)
 		{
 			_cartCost += item.GetPrice();
@@ -50,21 +58,40 @@ public class Shopkeeper : MonoBehaviour
 		if(player.GetPlayerMoney() >= _cartCost)
 		{
 			_shopkeeperText.text = "Your total is $" + _cartCost + " \n Want to buy your cart?";
+			_2ndRedButton.text = "OK";
 		}
 		else
 		{
-			_shopkeeperText.text = "Your total is $" + _cartCost + " \n Looks like you don't have enough money, want to edit your cart?";
+			_shopkeeperText.text = "Your total is $" + _cartCost + " \n Looks like you don't have enough money,\n  I'll empty your cart for you to choose again!";
+			_2ndRedButton.text = "OK";
+			_2ndGreenButton.SetActive(false);
+
+		}
+	}
+
+	public void BoughtCart()
+	{
+		foreach  (Outfit item in _playerCart)
+		{
+			item.GetComponent<Mannequin>().IsNotInCart();
 		}
 	}
 
 	public void DidntBuyCart()
 	{
-		foreach (Outfit item in _manager.GetCart())
-		{
-			_mannequin = item.GetMannequin();
-			_mannequin.GetComponent<Mannequin>().PlayerSoldIt();
 
-			Debug.Log(_mannequin);
+		foreach (Outfit item in _playerCart)
+		{
+			foreach (GameObject mannequin in _mannequins)
+			{
+				if (item.gameObject.name == mannequin.gameObject.name)//não ta funcionando
+				{
+					mannequin.GetComponent<Mannequin>().PlayerSoldIt();
+					mannequin.GetComponent<Mannequin>().IsNotInCart();
+
+					Debug.Log(mannequin.gameObject);
+				}
+			}
 		}
 	}
 	

@@ -42,6 +42,11 @@ public class Mannequin : MonoBehaviour
 		_outfit.gameObject.SetActive(false);
 	}
 
+	public void IsNotInCart()
+	{
+		_isInCart = false;
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (!_outfitData.GetPlayerOwnsIt() && !_isInCart)

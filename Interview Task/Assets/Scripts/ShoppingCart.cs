@@ -24,11 +24,6 @@ public class ShoppingCart : MonoBehaviour
 		{
 			_cartItems.Add(outfit);
 		}
-
-		foreach (Outfit item in _cartItems)
-		{
-			Debug.Log(item);
-		}
 	}
 
 	public List<Outfit> GetCart()
